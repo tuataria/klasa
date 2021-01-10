@@ -433,6 +433,14 @@ class KlasaClient extends Discord.Client {
 	}
 
 	/**
+	 * Retrieves the language key for the message.
+	 * @param {KlasaMessage} message The message that gives context.
+	 */
+	fetchLanguage() {
+		return this.options.language ?? 'en-US';
+	}
+
+	/**
 	 * Sweeps all text-based channels' messages and removes the ones older than the max message or command message lifetime.
 	 * If the message has been edited, the time of the edit is used rather than the time of the original message.
 	 * @since 0.5.0

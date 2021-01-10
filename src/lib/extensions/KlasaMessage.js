@@ -241,6 +241,18 @@ module.exports = Structures.extend('Message', Message => {
 		}
 
 		/**
+		 * Retrieves the Language for this message.
+		 * @since 0.5.0
+		 * @returns {Promise<Language>}
+		 */
+		async fetchLanguage() {
+			const languageKey = await this.client.fetchLanguage(this);
+			const language = this.client.languages.get(languageKey);
+			if (language) return language;
+			throw new Error(`The language '${language}' is not available.`);
+		}
+
+		/**
 		 * Since d.js is dumb and has 2 patch methods, this is for edits
 		 * @since 0.5.0
 		 * @param {*} data The data passed from the original constructor
