@@ -437,7 +437,9 @@ class KlasaClient extends Discord.Client {
 	 * @param {KlasaMessage} message The message that gives context.
 	 */
 	fetchLanguage() {
-		return this.options.language ?? 'en-US';
+		return this.options.langauge === null || this.options.language === undefined
+			? this.options.language
+			: 'en-US';
 	}
 
 	/**
